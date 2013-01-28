@@ -53,6 +53,10 @@ void testApp::setup() {
     {
 		cout  << "Failed to parse JSON" << endl;
 	} */
+    
+    action_url = "http://twitter.com/statuses/update.xml";
+	ofAddListener(httpUtils.newResponseEvent,this,&testApp::newResponse);
+	httpUtils.start();
 
 }
 
@@ -107,7 +111,18 @@ void testApp::draw() {
         
         // catch emotion
         if(face.mouthHeight > 5){
-            //printf("Open your mouth!");
+            
+            // Tweet
+            
+            if(!mouth_open) {
+                tweet();
+                mouth_open = true;
+                
+                ofDrawBitmapString(requestStr,20,20);
+                ofDrawBitmapString(responseStr,20,60);
+            }
+            
+            // fetch Twitter Trend
             if(parsed)
             {
                 ofSetHexColor(0x000000);
@@ -119,16 +134,73 @@ void testApp::draw() {
                 {
                     string message = trends[i]["query"].asString();
                     message = ofxJSONElement::decodeURL( message );
-                    cout << message << endl;
+                    //cout << message << endl;
                     font.drawString(message, 10, 40*i+40);
                     //franklinBook.drawString(message, 10, 40*i+40);
                     
                 }
             }
              
-             
+        }else{
+            mouth_open = false;
         }
     }
+
+}
+
+//--------------------------------------------------------------
+void testApp::newResponse(ofxHttpResponse & response){
+	responseStr = ofToString(response.status) + ": " + (string)response.responseBody;
+}
+
+
+void testApp::tweet() {
+    
+    ofxHttpForm form;
+	form.action = action_url;
+	form.method = OFX_HTTP_POST;
+    form.addFormField("login", "faceosctwitter@hotmail.com");
+	form.addFormField("password", "1q2w3e4r");
+	form.addFormField("user", "FaceOSCTweet");
+    form.addFormField("status", "Tweet from FaceOSCTweet, at @golan course!");
+	httpUtils.addForm(form);
+	
+    
+    /*
+    CkHttp http;
+    
+    bool success;
+    
+    //  Any string unlocks the component for the 1st 30-days.
+    success = http.UnlockComponent("Anything for 30-day trial");
+    if (success != true) {
+        printf("%s\n",http.lastErrorText());
+        return;
+    }
+    
+    //  Set the login/password for Twitter Authentication:
+    http.put_Login("faceosctwitter@hotmail.com");
+    http.put_Password("1q2w3e4r");
+    
+    CkHttpRequest req;
+    req.AddParam("user","FaceOSCTweet");
+    req.AddParam("status","Tweet from FaceOSCTweet, at @golan course!");
+    
+    CkHttpResponse *response = 0;
+    response = http.PostUrlEncoded("http://twitter.com/statuses/update.xml",req);
+    if (response == 0 ) {
+        printf("%s\n",http.lastErrorText());
+    }
+    else {
+        if (response->get_StatusCode() == 200) {
+            printf("Tweet Successful!\n");
+        }
+        else {
+            printf("%s\n",response->bodyStr());
+        }
+        
+        delete response;
+    }*/
 
 }
 

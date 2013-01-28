@@ -14,6 +14,7 @@
 		5218FA4216B490EB00155859 /* json_value.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5218FA3916B490EB00155859 /* json_value.cpp */; };
 		5218FA4316B490EB00155859 /* json_writer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5218FA3B16B490EB00155859 /* json_writer.cpp */; };
 		5218FA4416B490EB00155859 /* ofxJSONElement.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5218FA3F16B490EB00155859 /* ofxJSONElement.cpp */; };
+		5218FBF616B4FA8300155859 /* ofxHttpUtils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5218FBF416B4FA8300155859 /* ofxHttpUtils.cpp */; };
 		5864ad82e20f15536d054ea319473de3 /* ofxOscMessage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = df49d76c45d5db505a234880104e4dc7 /* ofxOscMessage.cpp */; };
 		62545d179c94265ca1389d4ac8d694a5 /* OscOutboundPacketStream.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 63a47ac60ffafc3bf093ec0f62a9a4d4 /* OscOutboundPacketStream.cpp */; };
 		640279ee111671bd026cb0137d5b121e /* ofxOscReceiver.cpp in Sources */ = {isa = PBXBuildFile; fileRef = c2fac65c491d4231379f3298ec59c6e9 /* ofxOscReceiver.cpp */; };
@@ -108,6 +109,9 @@
 		5218FA3D16B490EB00155859 /* version */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = version; sourceTree = "<group>"; };
 		5218FA3F16B490EB00155859 /* ofxJSONElement.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxJSONElement.cpp; sourceTree = "<group>"; };
 		5218FA4016B490EB00155859 /* ofxJSONElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxJSONElement.h; sourceTree = "<group>"; };
+		5218FBF316B4FA8300155859 /* ofxHttpTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpTypes.h; sourceTree = "<group>"; };
+		5218FBF416B4FA8300155859 /* ofxHttpUtils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ofxHttpUtils.cpp; sourceTree = "<group>"; };
+		5218FBF516B4FA8300155859 /* ofxHttpUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ofxHttpUtils.h; sourceTree = "<group>"; };
 		5928aa323f5c2690b06c837d8d036f55 /* UdpSocketWin.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = UdpSocketWin.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/ip/win32/UdpSocketWin.cpp; sourceTree = SOURCE_ROOT; };
 		63a47ac60ffafc3bf093ec0f62a9a4d4 /* OscOutboundPacketStream.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = OscOutboundPacketStream.cpp; path = ../../../addons/ofxOsc/libs/oscpack/src/osc/OscOutboundPacketStream.cpp; sourceTree = SOURCE_ROOT; };
 		65eefa3da3526e9cdd9c21f90d9b5684 /* ofxOscBundle.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 30; name = ofxOscBundle.cpp; path = ../../../addons/ofxOsc/src/ofxOscBundle.cpp; sourceTree = SOURCE_ROOT; };
@@ -290,6 +294,25 @@
 			path = ../../../addons/ofxJSON/src;
 			sourceTree = "<group>";
 		};
+		5218FBF116B4FA6F00155859 /* ofxHttpUtils */ = {
+			isa = PBXGroup;
+			children = (
+				5218FBF216B4FA8300155859 /* src */,
+			);
+			name = ofxHttpUtils;
+			sourceTree = "<group>";
+		};
+		5218FBF216B4FA8300155859 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5218FBF316B4FA8300155859 /* ofxHttpTypes.h */,
+				5218FBF416B4FA8300155859 /* ofxHttpUtils.cpp */,
+				5218FBF516B4FA8300155859 /* ofxHttpUtils.h */,
+			);
+			name = src;
+			path = ../../../addons/ofxHttpUtils/src;
+			sourceTree = "<group>";
+		};
 		641362ca659fafee4e81001be7d8d43c /* posix */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,6 +333,7 @@
 		BB4B014C10F69532006C3DED /* addons */ = {
 			isa = PBXGroup;
 			children = (
+				5218FBF116B4FA6F00155859 /* ofxHttpUtils */,
 				5218FA2616B490D300155859 /* ofxJSON */,
 				e6053ab7fec63d5f83825b880ce53c41 /* ofxOsc */,
 			);
@@ -560,6 +584,7 @@
 				5218FA4216B490EB00155859 /* json_value.cpp in Sources */,
 				5218FA4316B490EB00155859 /* json_writer.cpp in Sources */,
 				5218FA4416B490EB00155859 /* ofxJSONElement.cpp in Sources */,
+				5218FBF616B4FA8300155859 /* ofxHttpUtils.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
